@@ -9,10 +9,9 @@ let client = new OSS({
     region: 'oss-cn-hangzhou',
     secure: !debug,//https的情况下设置为true
     // internal: !debug,//是否使用阿里云内网访问，默认false。比如通过ECS访问OSS，则设置为true，采用internal的endpoint可节约费用。
-    accessKeyId: 'LTAI4GAEB7aAatCewtsVh9sj',
-    accessKeySecret: 'gesWWH88GxA9vJJONg9vH3z0FMXUNL',
-    bucket: 'poloplast',
-    // endpoint: debug ? 'oss-cn-hangzhou.aliyuncs.com' : 'oss-cn-hangzhou-internal.aliyuncs.com',
+    accessKeyId: 'accessKeyId',
+    accessKeySecret: 'accessKeySecret',
+    bucket: 'rnpxDemo',
     // timeout: 1000
 });
 /**

@@ -14,9 +14,9 @@ switch (env) {
     case "test":
         config = {
             database: 'rnpxDemo', // 使用哪个数据库
-            username: 'panjunlin', // 用户名
+            username: 'rnpxDemo', // 用户名
             password: 'Jinlin@123', // 口令
-            host: 'panjunlin.mysql.rds.aliyuncs.com', // 主机名
+            host: 'rnpxDemo.mysql.rds.aliyuncs.com', // 主机名
             port: 3306 // 端口号，MySQL默认3306
         };
         break;
@@ -25,7 +25,7 @@ switch (env) {
             database: 'rnpxDemo', // 使用哪个数据库
             username: 'rnpxDemo', // 用户名
             password: 'rnpxDemo123', // 口令
-            host: 'rm-bp11ugxwnj661191qro.mysql.rds.aliyuncs.com', // 主机名
+            host: 'rnpxDemo.mysql.rds.aliyuncs.com', // 主机名
             port: 3306 // 端口号，MySQL默认3306
         };
         break;

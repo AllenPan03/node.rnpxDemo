@@ -2,8 +2,8 @@ const { GetUser, InsertUser } = require("../models/user")
 const { renderData } = require("../../config/render")
 const jwt = require('jsonwebtoken');
 /**
- * 获取产品信息
- * @return 产品信息对象
+ * 用户登录
+ * @return 用户登录成功对象
  */
 export async function login(ctx) {
     const data = ctx.request.body;
