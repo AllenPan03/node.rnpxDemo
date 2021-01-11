@@ -1,0 +1,39 @@
+{
+    "apps": [
+        {
+            "name": "node.rnpxDemo",
+            "script": "./bin/index.js",
+            "watch": true,
+            "ignore_watch": [
+                "node_modules",
+                "*.log",
+                "app/data",
+                "_build",
+                "dist",
+                "output"
+            ],
+            "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "error_file": "err.log",
+            "out_file": "out.log",
+            "combine_logs": true,
+            "merge_logs": true,
+            "max_restarts": 3000,
+            "instances": "max",
+            "exec_mode": "cluster",
+            "kill_timeout": "5000",
+            "listen_timeout": "3000",
+            "env": {
+                "NODE_ENV": "dev",
+                "port": "3002"
+            },
+            "env_test": {
+                "NODE_ENV": "test",
+                "port": "3002"
+            },
+            "env_prd": {
+                "NODE_ENV": "prd",
+                "port": "3002"
+            }
+        }
+    ]
+}

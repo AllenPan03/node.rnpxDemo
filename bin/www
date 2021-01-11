@@ -1,0 +1,35 @@
+const koa = require("koa");
+const koaSwagger = require('koa2-swagger-ui');
+//const bodyParser = require("koa-bodyparser")
+const router = require('../app/routers/index')
+const path = require('path');
+const koaBody = require('koa-body');
+const { cross, onerror, onheader } = require("../app/middleware")
+const pkg = require("../package.json")
+const app = new koa();
+
+
+app.use(onerror()); // 系统错误,统一错误捕获
+app.use(koaBody({
+  multipart:true, // 支持文件上传
+  strict: false,  //如果为true，不解析GET,HEAD,DELETE请求
+  formidable: {
+    maxFieldsSize: 50 * 1024 * 1024, // 最大文件为50兆
+    multipart: true // 是否支持 multipart-formdate 的表单
+  }
+}));
+//app.use(bodyParser()) // ctx.body 解析中间件
+app.use(cross()) // 跨域请求头
+app.use(onheader()); // 请求头拦截
+app.use(koaSwagger({ //引入使用koa2-swagger-ui
+  routePrefix: '/swagger', // host at /swagger instead of default /docs
+  swaggerOptions: {
+    url: '/swagger.json', // example path to json 其实就是之后swagger-jsdoc生成的文档地址
+  },
+}))
+app.use(router.routes()).use(router.allowedMethods()) // 加载路由中间件
+
+function listen() {
+  app.listen(pkg.port, () => console.log(`start - up success, listening port ${pkg.port} `))
+}
+listen();
